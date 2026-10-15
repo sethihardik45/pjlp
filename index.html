@@ -39,8 +39,6 @@
       transition: transform .15s ease;
     }
     .cta:hover { transform: translateY(-2px); }
-    .admin-link { position: fixed; bottom: 16px; right: 20px; font-size: 13px; color: rgba(255,255,255,.5); text-decoration: none; }
-    .admin-link:hover { color: #fff; }
     .wrap { display: flex; flex-direction: column; align-items: center; gap: 32px; }
   </style>
 </head>
@@ -48,21 +46,23 @@
   <div class="wrap">
     <div class="logo" role="img" aria-label="Pandit Ji logo"></div>
     <div class="brand">Pandit Ji</div>
-    <a id="cta" class="cta" href="#">Talk to Astrologer Surendra</a>
+    <a id="cta" class="cta" href="#"></a>
   </div>
-  <a class="admin-link" href="admin.html">Admin</a>
 
   <script>
-    var DEFAULTS = { text: "Talk to Astrologer Surendra", url: "#" };
-    var cfg = DEFAULTS;
-    try { cfg = Object.assign({}, DEFAULTS, JSON.parse(localStorage.getItem("ctaConfig") || "{}")); } catch (e) {}
-    var el = document.getElementById("cta");
-    el.textContent = cfg.text;
-    el.href = cfg.url;
+    // ===== EDIT THESE =====
+    var BUTTON_TEXT = "Talk to Astrologer Surendra";
+    var BUTTON_LINK = "#";          // e.g. "https://example.com/chat"
+    var REDIRECT_AFTER_MS = 2000;   // auto-redirect delay; set to 0 to disable
+    // ======================
 
-    // Auto-redirect to the CTA link 2 seconds after the page opens (skipped if no link is set)
-    if (cfg.url && cfg.url !== "#") {
-      setTimeout(function () { window.location.href = cfg.url; }, 2000);
+    var el = document.getElementById("cta");
+    el.textContent = BUTTON_TEXT;
+    el.href = BUTTON_LINK;
+
+    // Auto-redirect to the button link (skipped if no link is set)
+    if (REDIRECT_AFTER_MS > 0 && BUTTON_LINK && BUTTON_LINK !== "#") {
+      setTimeout(function () { window.location.href = BUTTON_LINK; }, REDIRECT_AFTER_MS);
     }
   </script>
 </body>
