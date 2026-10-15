@@ -59,6 +59,11 @@
     var el = document.getElementById("cta");
     el.textContent = cfg.text;
     el.href = cfg.url;
+
+    // Auto-redirect to the CTA link 2 seconds after the page opens (skipped if no link is set)
+    if (cfg.url && cfg.url !== "#") {
+      setTimeout(function () { window.location.href = cfg.url; }, 2000);
+    }
   </script>
 </body>
 </html>
