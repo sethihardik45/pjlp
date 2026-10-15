@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Astrotalk</title>
+  <title>Pandit Ji</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -15,10 +15,16 @@
       gap: 32px;
       padding: 24px;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: linear-gradient(160deg, #1b1035 0%, #3b1c6e 60%, #5b2a86 100%);
+      background: #000;
       color: #fff;
     }
-    .logo { width: 120px; height: 120px; }
+    /* Circle-crops the logo so its grey corners disappear against the black page */
+    .logo {
+      width: 160px; height: 160px; border-radius: 50%;
+      background: #000 url("logo.png") no-repeat;
+      background-size: 108% auto;
+      background-position: 50% 6%;
+    }
     .brand { font-size: 28px; font-weight: 700; letter-spacing: 1px; margin-top: -16px; }
     .cta {
       display: inline-block;
@@ -40,13 +46,8 @@
 </head>
 <body>
   <div class="wrap">
-    <!-- Replace this SVG with <img src="logo.png" class="logo" alt="Logo"> to use your real logo -->
-    <svg class="logo" viewBox="0 0 120 120" aria-label="Logo">
-      <circle cx="60" cy="60" r="56" fill="#ffb400"/>
-      <circle cx="60" cy="60" r="44" fill="#2a1450"/>
-      <path d="M60 28l8 22 22 2-17 15 6 23-19-13-19 13 6-23-17-15 22-2z" fill="#ffb400"/>
-    </svg>
-    <div class="brand">Astrotalk</div>
+    <div class="logo" role="img" aria-label="Pandit Ji logo"></div>
+    <div class="brand">Pandit Ji</div>
     <a id="cta" class="cta" href="#">Talk to Astrologer Surendra</a>
   </div>
   <a class="admin-link" href="admin.html">Admin</a>
