@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Astrotalk</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      padding: 24px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: linear-gradient(160deg, #1b1035 0%, #3b1c6e 60%, #5b2a86 100%);
+      color: #fff;
+    }
+    .logo { width: 120px; height: 120px; }
+    .brand { font-size: 28px; font-weight: 700; letter-spacing: 1px; margin-top: -16px; }
+    .cta {
+      display: inline-block;
+      padding: 16px 36px;
+      border-radius: 999px;
+      background: #ffb400;
+      color: #2a1450;
+      font-size: 18px;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 8px 24px rgba(255, 180, 0, .35);
+      transition: transform .15s ease;
+    }
+    .cta:hover { transform: translateY(-2px); }
+    .admin-link { position: fixed; bottom: 16px; right: 20px; font-size: 13px; color: rgba(255,255,255,.5); text-decoration: none; }
+    .admin-link:hover { color: #fff; }
+    .wrap { display: flex; flex-direction: column; align-items: center; gap: 32px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <!-- Replace this SVG with <img src="logo.png" class="logo" alt="Logo"> to use your real logo -->
+    <svg class="logo" viewBox="0 0 120 120" aria-label="Logo">
+      <circle cx="60" cy="60" r="56" fill="#ffb400"/>
+      <circle cx="60" cy="60" r="44" fill="#2a1450"/>
+      <path d="M60 28l8 22 22 2-17 15 6 23-19-13-19 13 6-23-17-15 22-2z" fill="#ffb400"/>
+    </svg>
+    <div class="brand">Astrotalk</div>
+    <a id="cta" class="cta" href="#">Talk to Astrologer Surendra</a>
+  </div>
+  <a class="admin-link" href="admin.html">Admin</a>
+
+  <script>
+    var DEFAULTS = { text: "Talk to Astrologer Surendra", url: "#" };
+    var cfg = DEFAULTS;
+    try { cfg = Object.assign({}, DEFAULTS, JSON.parse(localStorage.getItem("ctaConfig") || "{}")); } catch (e) {}
+    var el = document.getElementById("cta");
+    el.textContent = cfg.text;
+    el.href = cfg.url;
+  </script>
+</body>
+</html>
